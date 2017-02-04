@@ -6,8 +6,8 @@ C my first FORTRAN program
         logical still
         call infopen(fdin)
         read(fdin,'(A)') name
-        read(fdin,'(I)') gen
-        read(fdin,'(I,I)') row, col
+        read(fdin,'(I0)') gen
+        read(fdin,'(I0,I0)') row, col
 
 C read pattern from input file
         i = 1
@@ -77,8 +77,8 @@ C subroutine for file open and error print
 
 C subroutine for produce next generation
       SUBROUTINE generate(row,col,pattern1,pattern2,still,stillgen)
+        integer row, col, stillgen, i, j, lives
         character*80 pattern1(*), pattern2(*)
-        integer i, j, lives, stillgen
         logical still
 
 C nested loop
