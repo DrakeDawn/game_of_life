@@ -6,8 +6,8 @@ C my first FORTRAN program
         logical still
         call infopen(fdin)
         read(fdin,'(A)') name
-        read(fdin,'(I0)') gen
-        read(fdin,'(I0,I0)') row, col
+        read(fdin,*) gen
+        read(fdin,*) row, col
 
 C read pattern from input file
         i = 1
@@ -108,7 +108,7 @@ C nested loop
 
 C subroutine for counting live neighbours of the given position
       SUBROUTINE countlives(row, col, posr, posc, pattern, lives)
-        integer row, col posr, posc, lives
+        integer row, col, posr, posc, lives
         character*80 pattern(*)
         lives = 0
         if ( (posr-1) .GT. 0 ) then
