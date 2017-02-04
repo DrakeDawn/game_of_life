@@ -22,7 +22,10 @@ C simulate the generations
           still = .TRUE.
           call copy(row, col, pattern2, pattern1)
           call generate(row,col,pattern1,pattern2,still,stillgen)
-          if ( still ) stillgen = i - 1
+          if ( still ) then
+            stillgen = i - 1
+            GO TO 40
+          endif
           i = i + 1
           GO TO 30
 
@@ -33,6 +36,7 @@ C simulate the generations
         i = 1
    50   if ( i .GT. row ) GO TO 60
           write(fdout, '(A)') trim(pattern1(i))
+          i = i + 1
           GO TO 50
 
    60   if ( .NOT. still .AND. (gen .EQ. 1) ) GO TO 70
