@@ -154,6 +154,7 @@ C copy from one pattern to another
         i = 1
   210   if ( i .GT. row ) GO TO 220
           pattern2(i) = pattern1(i)
+          i = i + 1
           GO TO 210
   220   i = 1
       END
