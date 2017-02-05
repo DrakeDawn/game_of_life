@@ -29,13 +29,14 @@ C simulate the generations
           i = i + 1
           GO TO 30
 
-   40   name = trim(name) // 'for.txt'
-        open(unit=fdout, file=name, iostat=ios, status='new')
+C write result into file
+   40   name = name(1:length(name)) // 'for.txt'
+        open(unit=fdout, file=name, iostat=ios)
         if ( ios .NE. 0 ) stop "Error opening file"
 
         i = 1
    50   if ( i .GT. row ) GO TO 60
-          write(fdout, '(A)') trim(pattern1(i))
+          write(fdout, '(A)') pattern1(i)(1:length(pattern1(i)))
           i = i + 1
           GO TO 50
 
@@ -161,4 +162,15 @@ C copy from one pattern to another
           i = i + 1
           GO TO 210
   220   i = 1
+      END
+
+      integer FUNCTION length(str)
+        character*(*) str
+        integer i
+        i = LEN(str)
+  400   if ( i .LT. 1 ) GO TO 410
+          if ( str(i:i) .NE. ' ' ) GO TO 410
+          i = i - 1
+          GO TO 400
+  410   length = i
       END
