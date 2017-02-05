@@ -31,7 +31,7 @@ C simulate the generations
 
 C write result into file
    40   name = name(1:length(name)) // 'for.txt'
-        open(unit=fdout, file=name, iostat=ios, status='new')
+        open(unit=fdout, file=name, iostat=ios)
         if ( ios .NE. 0 ) stop "Error opening file"
 
         i = 1
@@ -171,5 +171,6 @@ C copy from one pattern to another
   400   if ( i .LT. 1 ) GO TO 410
           if ( str(i:i) .NE. ' ' ) GO TO 410
           i = i - 1
+          GO TO 400
   410   length = i
       END
