@@ -178,7 +178,8 @@ WRITE-FILE.
             INSPECT TEMP-D TALLYING TEMP-A FOR LEADING ZEROS
             SUBTRACT TEMP-A FROM 5 GIVING TEMP-B
             ADD 1 TO TEMP-A
-            STRING 'It is still not a still life even after ' DELIMITED BY SIZE
+            STRING 'It is still not a still life even after '
+                DELIMITED BY SIZE
                 TEMP-D(TEMP-A:TEMP-B) DELIMITED BY SIZE
                 ' steps.' DELIMITED BY SIZE
                 INTO DATA-OUTPUT
