@@ -8,4 +8,4 @@ In this assignment, you have to implement a Game of Life Simulator once in FORTR
 
 ## Remarks
 
-COBOL sucks!
+~~`COBOL` sucks!~~
